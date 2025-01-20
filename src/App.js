@@ -14,6 +14,8 @@ import Ejemplo3 from './Hooks/Ejemplo3'
 import Ejemplo4 from './Hooks/Ejemplo4'; 
 import MiComponenteConContexto from './Hooks/Ejemplo3';
 import GreetingStyled from './Components/pure/greetingStyled';
+import Fhater  from './Components/Container/fhater';
+
 
 
 // -- AQUI RENDERIZAMOS LOS COMONENTES ARA QUE SE VIZUALICEN EN LA VISTA
@@ -55,8 +57,11 @@ function App() {
 
 
     
-      <TaskListComponent></TaskListComponent>
-      
+     {/*   <TaskListComponent></TaskListComponent>*/}
+
+
+     
+      <Fhater></Fhater>
 
     </div>
   );

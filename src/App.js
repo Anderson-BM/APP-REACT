@@ -53,15 +53,15 @@ function App() {
       </Ejemplo4>*/}
     {/*   </header>*/}
     {/*   <GreetingStyled></GreetingStyled>*/}
-    
+     {/* <Fhater></Fhater>*/}
 
 
     
-     {/*   <TaskListComponent></TaskListComponent>*/}
+       <TaskListComponent></TaskListComponent>
 
 
      
-      <Fhater></Fhater>
+    
 
     </div>
   );

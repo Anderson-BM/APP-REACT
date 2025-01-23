@@ -18,13 +18,13 @@ const TaskList = () => {
 
 
 
-// ESTADO DE EL COMPONENETE
-    const [tasks, setTasks] = useState([desfaulTask1,desfaulTask2,desfaulTask3,desfaulTask4,desfaulTask5,desfaulTask6]);
-    const [loandig, setLoandig] = useState(true);
+     // ESTADO DE EL COMPONENETE
+      const [tasks, setTasks] = useState([desfaulTask1,desfaulTask2,desfaulTask3,desfaulTask4,desfaulTask5,desfaulTask6]);
+      const [loandig, setLoandig] = useState(true);
 
 
-// CONTROL DE EL CICLO DE VIDA DE EL COMPONENETE
-useEffect(() => {
+     // CONTROL DE EL CICLO DE VIDA DE EL COMPONENETE
+    useEffect(() => {
     console.log('Task State has been componente')
     setLoandig(false)
     return () => {
@@ -34,11 +34,38 @@ useEffect(() => {
 }, [tasks]);
 
 
+        // Esta es una Funcion para Completar Tareas
+        function completeTask(task){
+        console.log('Complete this Task:', task)
+        const index = tasks.indexOf(task);
+        const temTasks = [...tasks];
+        temTasks[index].completed = ! temTasks[index].completed
+        // we update the satte oh the componen with the new list of task and it will ipdate the Iteration of tasks in 
+        // orde to show the task update
+        setTasks(temTasks)
+      }
 
-    const changeCompleted = (id) => {
-        console.log('TODO: Cambiar estado de una tarea')
+
+        // Esta es una Funcion para eliminar Tareas
+        function deletTask(task){
+        console.log('Delete this Task:', task)
+        const index = tasks.indexOf(task);
+        const temTasks = [...tasks];
+        temTasks.splice(index,1);
+        setTasks(temTasks)
+
     }
 
+
+    // Esta es una Funcion para eliminar Tareas
+    function addTask(task){
+        console.log('Add this Task:', task)
+        const index = tasks.indexOf(task);
+        const temTasks = [...tasks];
+        temTasks.push(task)
+        setTasks(temTasks)
+
+    }
 
     return (
         <div>
@@ -68,7 +95,11 @@ useEffect(() => {
                     return  (
                         <TaskComponent
                          key={index}
-                         task={task}>
+                         task={task}
+                         complete={completeTask}
+                         remove={deletTask}
+
+                         >
                          </TaskComponent>
                         )
                         }
@@ -78,7 +109,7 @@ useEffect(() => {
 
                   </table>
                   </div>
-                  <TaskForm></TaskForm>
+                  
                </div>
 
 
@@ -86,6 +117,7 @@ useEffect(() => {
             </div>
             
           {/*   <TaskComponent task={desfaulTask} ></TaskComponent>*/}
+          <TaskForm add={addTask}></TaskForm>
         </div>
     );
 };

@@ -5,7 +5,7 @@ import { Task } from "../../models/task.class";
 import '../../Styles/task.scss'
 import { LEVELS } from "../../models/levels.enunm";
 
-const TaskComponent = ({task}) => {
+const TaskComponent = ({task, complete, remove }) => {
 
     useEffect(() => {
         console.log('create Tak')
@@ -55,10 +55,10 @@ const TaskComponent = ({task}) => {
     function taskCompleteIcon() {
 
         if(task.completed){
-            return (<i className='bi-toggle-on' style={{color:'green'}}></i>) 
+            return (<i onClick={() => complete(task)} className='bi-toggle-on task-acction' style={{color:'green'}}></i>) 
 
         }else{
-            return (<i className='bi-toggle-off' style={{color:'grey'}}></i>)
+            return (<i onClick={() => complete(task)} className='bi-toggle-off task-acction' style={{color:'grey'}}></i>)
 
         }
     }
@@ -87,7 +87,7 @@ const TaskComponent = ({task}) => {
          <td className='align-middle'> 
          {/*Executions of funtion to return icon deendig on comletion  */}
          {taskCompleteIcon()}
-         <i className='bi-trash' style={{color:'tomato' }}></i>
+         <i className='bi-trash task-acction' style={{color:'tomato' }} onClick={() => remove (task)}></i>
          </td>
          </tr>
 
@@ -96,7 +96,9 @@ const TaskComponent = ({task}) => {
 
 
 TaskComponent.propTypes = { 
-    task: PropTypes.instanceOf(Task)  // instance off es cuando no le especifico si es string o algo asi en este caso quiero que sea una tarea osea task
+    task: PropTypes.instanceOf(Task).isRequired, // instance off es cuando no le especifico si es string o algo asi en este caso quiero que sea una tarea osea task
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 };
 
 

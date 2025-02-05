@@ -56,11 +56,11 @@ function App() {
     {/*   </header>*/}
     {/*   <GreetingStyled></GreetingStyled>*/}
      {/* <Fhater></Fhater>*/}
-     <OptionalRender></OptionalRender>
+    {/*  <OptionalRender></OptionalRender>*/}
 
 
     
-      {/*  <TaskListComponent></TaskListComponent>*/}
+        <TaskListComponent></TaskListComponent>
 
 
      

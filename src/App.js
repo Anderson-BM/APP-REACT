@@ -15,6 +15,7 @@ import Ejemplo4 from './Hooks/Ejemplo4';
 import MiComponenteConContexto from './Hooks/Ejemplo3';
 import GreetingStyled from './Components/pure/greetingStyled';
 import Fhater  from './Components/Container/fhater';
+import OptionalRender from './Components/pure/otionalRender';
 
 
 
@@ -55,10 +56,11 @@ function App() {
     {/*   </header>*/}
     {/*   <GreetingStyled></GreetingStyled>*/}
      {/* <Fhater></Fhater>*/}
+     <OptionalRender></OptionalRender>
 
 
     
-       <TaskListComponent></TaskListComponent>
+      {/*  <TaskListComponent></TaskListComponent>*/}
 
 
      
